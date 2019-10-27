@@ -96,18 +96,11 @@ Redis::get('name');
 $ docker-compose exec redis redis-cli
 ```
 
-### Clear database volume
-
-```
-$ docker-compose down --volumes --rmi all
-$ docker-compose up -d --build
-$ docker-compose exec app php artisan migrate
-```
 
 ### Clone of exists code
 
 ```
-$ git clone git@github.com:ucan-lab/docker-laravel.git
+$ git clone git@github.com:sgoodwin10/docker-laravel.git
 $ cd docker-laravel
 $ docker-compose up -d --build
 
