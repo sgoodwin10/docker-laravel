@@ -12,6 +12,10 @@ ENV GIT_EMAIL $GIT_EMAIL
 # timezone
 ARG TZ
 
+# tinker(psysh)
+ARG PSYSH_DIR=/usr/local/share/psysh
+ARG PHP_MANUAL_URL=http://psysh.org/manual/ja/php_manual.sqlite
+
 # composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /composer
@@ -28,7 +32,7 @@ RUN apt-get update -y && apt-get install -y \
     mariadb-client \
     mariadb-server \ 
     && docker-php-ext-install mcrypt \ 
-    && docker-php-ext-install pdo_mysql \ 
+    && docker-php-ext-install pdo pdo_mysql \ 
     && docker-php-ext-install mbstring \
     && docker-php-ext-install bcmath \
     && docker-php-ext-install mysqli
@@ -41,7 +45,8 @@ RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
     
 RUN git clone https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis \
-    && docker-php-ext-install redis
+    && docker-php-ext-install redis \
+    && mkdir $PSYSH_DIR && wget $PHP_MANUAL_URL -P $PSYSH_DIR
     
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer 
 

@@ -28,7 +28,7 @@ $ docker-compose exec app composer create-project --prefer-dist "laravel/laravel
 $ docker-compose exec app composer require predis/predis
 ```
 
-http://127.0.0.1:10080
+http://localhost:8080
 
 ### Running Migrations
 
@@ -46,29 +46,35 @@ $ sed -i -e 's/<php>/<php>\n        <env name="DB_HOST" value="db-testing" force
 $ ./vendor/bin/phpunit
 ```
 
-### Setup Laravel Elixir on 5.2
+### Setup Laravel Elixir on 5.2 on Node container
 
 ```
-$ docker-compose exec php apt-get install -y npm
+$ docker-compose exec node apt-get install -y npm
 ```
 Add Gulp
 ```
-$ docker-compose exec php npm install --global gulp-cli
+$ docker-compose exec node npm install --global gulp-cli
 ```
 Install Elixir
 ```
-$ docker-compose exec php npm install
+$ docker-compose exec node npm install
 ```
 If sass is required
 ```
-$ docker-compose exec php npm install node-sass gulp-sass --save-dev
+$ docker-compose exec node npm install node-sass gulp-sass --save-dev
 ```
 If notify is required
 ```
-$ docker-compose exec php apt-get install libnotify-bin
+$ docker-compose exec node apt-get install libnotify-bin
 ```
+Run gulp
 
 ## As necessary
+
+Access the bash
+```
+docker-compose exec php bash
+```
 
 ### Composer dump autoload
 

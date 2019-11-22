@@ -1,0 +1,13 @@
+_HiStOrY_V2_
+docker-compose\040exec\040app\040php\040artisan\040tinker
+Redis::set('name',\040'hoge');
+Redis::set('name',\040'hoge');
+Cache::set('name',\040'hoge');
+Cache::put('name',\040'hoge');
+Cache::put('name',\040'hoge');
+Cache::put('name',\040'hoge',\040200);
+Cache::put('name',\040'hoge',\040200);
+exit
+Redis::set('name',\040'hoge');
+Cache::put('name',\040'hoge',\040200);
+exit

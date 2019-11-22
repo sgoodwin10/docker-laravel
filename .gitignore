@@ -2,5 +2,7 @@
 /logs/*
 /mysql/*
 /src/*
+/redis/*
 !/logs
 !/mysql
+!/redis
